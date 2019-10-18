@@ -20,18 +20,20 @@
 
     function compare(userGuess, computerGuess){
        
-        
-        if((userGuess === "r") && (computerGuess === "s")) {
-          console.log("win");
-          // score++;
-
+        var score = 0;
+        if (((userGuess === "r") && (computerGuess === "s")) || 
+        ((userGuess === "s") && (computerGuess === "p")) ||
+        ((userGuess === "p") && (computerGuess === "r"))) {
+            score++;
+            alert("You win and you're new score is " + score)
+        } else if (((userGuess === "r") && (computerGuess === "r")) ||
+        ((userGuess === "s") && (computerGuess === "s")) || 
+        ((userGuess === "p") && (computerGuess === "p"))) {
+            alert("TIE!")
         } else {
-          console.log("lose");
-          // score does not change.
+            alert("You lost that round");
         }
-
-
-
+       
 
 
     }//end compare
@@ -45,7 +47,6 @@
       // Randomly chooses a choice from the options array. This is the Computer's guess.
       var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-      var score = 0;
       
       // Alerts the key the user pressed (userGuess).
       alert("User guess: " + userGuess);
@@ -57,7 +58,7 @@
       //Call compare to see who wins
       compare(userGuess, computerGuess);
 
-      // alert("Your current score is: " + score);
+      
 
     };
 
