@@ -10,6 +10,8 @@
 <body>
 
   <div id="game">
+      <h1>Welcome to Rock, Paper, Scissors!!!</h1>
+      <h2>Hit r, s, or p to play.</h2>
 
   </div>
 
@@ -18,22 +20,25 @@
     // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
     var computerChoices = ["r", "p", "s"];
 
-    function compare(userGuess, computerGuess){
+    var score = 0;
+
+    function compare(userGuess, computerGuess, score){
        
-        var score = 0;
+        
         if (((userGuess === "r") && (computerGuess === "s")) || 
         ((userGuess === "s") && (computerGuess === "p")) ||
         ((userGuess === "p") && (computerGuess === "r"))) {
             score++;
-            alert("You win and you're new score is " + score)
+            alert("You win! Score is " + score)
         } else if (((userGuess === "r") && (computerGuess === "r")) ||
         ((userGuess === "s") && (computerGuess === "s")) || 
         ((userGuess === "p") && (computerGuess === "p"))) {
             alert("TIE!")
         } else {
-            alert("You lost that round");
+            alert("You lost that one.");
         }
        
+        return score;
 
 
     }//end compare
@@ -56,7 +61,7 @@
       alert("Computer guess: " + computerGuess);
       
       //Call compare to see who wins
-      compare(userGuess, computerGuess);
+      score = compare(userGuess, computerGuess, score);
 
       
 
