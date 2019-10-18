@@ -24,20 +24,25 @@
 
     function compare(userGuess, computerGuess, score){
        
-        
+        //check if user wins and if so, increment score
         if (((userGuess === "r") && (computerGuess === "s")) || 
         ((userGuess === "s") && (computerGuess === "p")) ||
         ((userGuess === "p") && (computerGuess === "r"))) {
             score++;
             alert("You win! Score is " + score)
+
+        //if they didn't win, check if they tied w computer    
         } else if (((userGuess === "r") && (computerGuess === "r")) ||
         ((userGuess === "s") && (computerGuess === "s")) || 
         ((userGuess === "p") && (computerGuess === "p"))) {
             alert("TIE!")
+
+        //if they didn't win or tie, they must have lost    
         } else {
             alert("You lost that one.");
         }
        
+        //return the value of score so that we can keep track of all pts
         return score;
 
 
@@ -60,7 +65,7 @@
       // Alerts the Computer's guess.
       alert("Computer guess: " + computerGuess);
       
-      //Call compare to see who wins
+      //Call compare to see who wins and possibly increment score
       score = compare(userGuess, computerGuess, score);
 
       
