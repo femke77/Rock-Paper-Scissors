@@ -20,7 +20,7 @@
     // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
     var computerChoices = ["r", "p", "s"];
 
-    var score = 0;
+    var win = lose = tie = 0;
 
     function compare(userGuess, computerGuess){
        
@@ -28,25 +28,23 @@
         if (((userGuess === "r") && (computerGuess === "s")) || 
         ((userGuess === "s") && (computerGuess === "p")) ||
         ((userGuess === "p") && (computerGuess === "r"))) {
-            score++;
-            alert("You win! Score is " + score)
+            win++;
+            alert("You win! Score is " + win + " wins!")
 
         //if they didn't win, check if they tied w computer    
         } else if (((userGuess === "r") && (computerGuess === "r")) ||
         ((userGuess === "s") && (computerGuess === "s")) || 
         ((userGuess === "p") && (computerGuess === "p"))) {
-            alert("TIE!")
+          tie++;  
+          alert("TIE! You have tied " + tie + " times now.")
 
         //if they didn't win or tie, they must have lost    
         } else {
-            alert("You lost that one.");
+            lose++;
+            alert("You lost that one. You've lost " + lose + " times now.");
         }
-       
-        //return the value of score so that we can keep track of all pts
-        return score;
-
-
-    }//end compare
+         
+    }
    
     // This function is run whenever the user presses a key.
     document.onkeyup = function(event) {
@@ -65,8 +63,8 @@
       // Alerts the Computer's guess.
       alert("Computer guess: " + computerGuess);
       
-      //Call compare to see who wins and possibly increment score
-      score = compare(userGuess, computerGuess);
+      
+      compare(userGuess, computerGuess);
 
       
 
